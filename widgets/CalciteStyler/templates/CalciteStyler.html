@@ -1,0 +1,206 @@
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+            <a id="calcite-styler-theme-tab" href="#calcite-styler-theme-content" aria-controls="calcite-styler-theme-content" role="tab" data-toggle="tab">Theme</a>
+        </li>
+        <li role="presentation" class="active">
+            <a id="calcite-styler-layout-tab" href="#calcite-styler-layout-content" aria-controls="calcite-styler-layout-content" role="tab" data-toggle="tab">Layout</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <!-- Tab - Theme -->
+        <div role="tabpanel" class="tab-pane" id="calcite-styler-theme-content">
+            <div class="calcite-form-title">Set background and text color</div>
+            <div class="form-horizontal calcite-form-padding">
+                <!-- Color -->
+                <div class="form-group">
+                    <label for="settingsColor" class="col-xs-4 control-label">Color</label>
+                    <div class="col-xs-8">
+                        <select data-dojo-attach-event="onChange:_setColor" class="form-control">
+                            <option value="theme">Calcite Themes</option>
+                            <option value="calcite">Calcite Colors</option>
+                            <option value="custom">More Colors...</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Color Picker - Collapse -->
+                <div id="colorThemeCollapse" class="form-group collapse in">
+                    <div class="col-xs-offset-4 col-xs-8">
+                        <div class="row">
+                            <div class="form-box">
+                                <div class="col-xs-12">
+                                    <select data-dojo-attach-event="onChange:_setThemeColor" class="form-control">
+                                        <option value="light">Light</option>
+                                        <option value="dark" selected>Dark</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Color Picker - Collapse -->
+                <div id="colorCalciteCollapse" class="form-group collapse">
+                    <div class="col-xs-offset-4 col-xs-8">
+                        <div class="row">
+                            <div class="form-box">
+                                <div class="col-xs-12">
+                                    <select data-dojo-attach-event="onChange:_setCalciteColor"  id="settingsCalciteColor" class="form-control control-padding-top">
+                                        <option value="calcite-bgcolor-white" data-textcolor="calcite-text-dark">--- White ---</option>
+                                        <option value="calcite-bgcolor-transparent" data-textcolor="calcite-text-dark">Transparent</option>
+                                        <option value="calcite-bgcolor-white" data-textcolor="calcite-text-dark">Calcite White</option>
+                                        <option value="calcite-bgcolor-white-75" data-textcolor="calcite-text-dark">Calcite White 75%</option>
+                                        <option value="calcite-bgcolor-white-50" data-textcolor="calcite-text-dark">Calcite White 50%</option>
+                                        <option value="calcite-bgcolor-white-25" data-textcolor="calcite-text-dark">Calcite White 25%</option>
+                                        <option value="calcite-bgcolor-off-white" data-textcolor="calcite-text-dark">Calcite Off White</option>
+                                        <option value="calcite-bgcolor-grey" data-textcolor="calcite-text-light">--- Grey ---</option>
+                                        <option value="calcite-bgcolor-lightest-grey" data-textcolor="calcite-text-dark">Calcite Lightest Grey</option>
+                                        <option value="calcite-bgcolor-lighter-grey" data-textcolor="calcite-text-dark">Calcite Lighter Grey</option>
+                                        <option value="calcite-bgcolor-light-grey" data-textcolor="calcite-text-dark">Calcite Light Grey</option>
+                                        <option value="calcite-bgcolor-grey" data-textcolor="calcite-text-light">Calcite Grey</option>
+                                        <option value="calcite-bgcolor-grey-75" data-textcolor="calcite-text-light">Calcite Grey 75%</option>
+                                        <option value="calcite-bgcolor-grey-50" data-textcolor="calcite-text-dark">Calcite Grey 50%</option>
+                                        <option value="calcite-bgcolor-grey-25" data-textcolor="calcite-text-dark">Calcite Grey 25%</option>
+                                        <option value="calcite-bgcolor-dark-grey" data-textcolor="calcite-text-light">Calcite Dark Grey</option>
+                                        <option value="calcite-bgcolor-darker-grey" data-textcolor="calcite-text-light">Calcite Darker Grey</option>
+                                        <option value="calcite-bgcolor-darkest-grey" data-textcolor="calcite-text-light">Calcite Darkest Grey</option>
+                                        <option value="calcite-bgcolor-black" data-textcolor="calcite-text-light">--- Black ---</option>
+                                        <option value="calcite-bgcolor-true-black" data-textcolor="calcite-text-light">Calcite True Black</option>
+                                        <option value="calcite-bgcolor-off-black" data-textcolor="calcite-text-light">Calcite Off Black</option>
+                                        <option value="calcite-bgcolor-black" data-textcolor="calcite-text-light">Calcite Black</option>
+                                        <option value="calcite-bgcolor-black-75" data-textcolor="calcite-text-light">Calcite Black 75%</option>
+                                        <option value="calcite-bgcolor-black-50" data-textcolor="calcite-text-light">Calcite Black 50%</option>
+                                        <option value="calcite-bgcolor-black-25" data-textcolor="calcite-text-light">Calcite Black 25%</option>
+                                        <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light">--- Blue ---</option>
+                                        <option value="calcite-bgcolor-dark-blue" data-textcolor="calcite-text-light">Calcite Dark Blue</option>
+                                        <option value="calcite-bgcolor-blue" data-textcolor="calcite-text-light">Calcite Blue</option>
+                                        <option value="calcite-bgcolor-blue-75" data-textcolor="calcite-text-light">Calcite Blue 75%</option>
+                                        <option value="calcite-bgcolor-blue-50" data-textcolor="calcite-text-light">Calcite Blue 50%</option>
+                                        <option value="calcite-bgcolor-blue-25" data-textcolor="calcite-text-dark">Calcite Blue 25%</option>
+                                        <option value="calcite-bgcolor-light-blue" data-textcolor="calcite-text-dark">Calcite Light Blue</option>
+                                        <option value="calcite-bgcolor-dark-green" data-textcolor="calcite-text-light">--- Green ---</option>
+                                        <option value="calcite-bgcolor-dark-green" data-textcolor="calcite-text-light">Calcite Dark Green</option>
+                                        <option value="calcite-bgcolor-green" data-textcolor="calcite-text-light">Calcite Green</option>
+                                        <option value="calcite-bgcolor-green-75" data-textcolor="calcite-text-light">Calcite Green 75%</option>
+                                        <option value="calcite-bgcolor-green-50" data-textcolor="calcite-text-light">Calcite Green 50%</option>
+                                        <option value="calcite-bgcolor-green-25" data-textcolor="calcite-text-dark">Calcite Green 25%</option>
+                                        <option value="calcite-bgcolor-light-green" data-textcolor="calcite-text-dark">Calcite Light Green</option>
+                                        <option value="calcite-bgcolor-red" data-textcolor="calcite-text-light">--- Red ---</option>
+                                        <option value="calcite-bgcolor-dark-red" data-textcolor="calcite-text-light">Calcite Dark Red</option>
+                                        <option value="calcite-bgcolor-red" data-textcolor="calcite-text-light">Calcite Red</option>
+                                        <option value="calcite-bgcolor-red-75" data-textcolor="calcite-text-light">Calcite Red 75%</option>
+                                        <option value="calcite-bgcolor-red-50" data-textcolor="calcite-text-light">Calcite Red 50%</option>
+                                        <option value="calcite-bgcolor-red-25" data-textcolor="calcite-text-dark">Calcite Red 25%</option>
+                                        <option value="calcite-bgcolor-light-red" data-textcolor="calcite-text-dark">Calcite Light Red</option>
+                                        <option value="calcite-bgcolor-orange" data-textcolor="calcite-text-light">--- Orange ---</option>
+                                        <option value="calcite-bgcolor-dark-orange" data-textcolor="calcite-text-light">Calcite Dark Orange</option>
+                                        <option value="calcite-bgcolor-orange" data-textcolor="calcite-text-light">Calcite Orange</option>
+                                        <option value="calcite-bgcolor-orange-75" data-textcolor="calcite-text-light">Calcite Orange 75%</option>
+                                        <option value="calcite-bgcolor-orange-50" data-textcolor="calcite-text-light">Calcite Orange 50%</option>
+                                        <option value="calcite-bgcolor-orange-25" data-textcolor="calcite-text-dark">Calcite Orange 25%</option>
+                                        <option value="calcite-bgcolor-light-orange" data-textcolor="calcite-text-dark">Calcite Light Orange</option>
+                                        <option value="calcite-bgcolor-yellow" data-textcolor="calcite-text-dark">--- Yellow ---</option>
+                                        <option value="calcite-bgcolor-dark-yellow" data-textcolor="calcite-text-dark">Calcite Dark Yellow</option>
+                                        <option value="calcite-bgcolor-yellow" data-textcolor="calcite-text-dark">Calcite Yellow</option>
+                                        <option value="calcite-bgcolor-yellow-75" data-textcolor="calcite-text-dark">Calcite Yellow 75%</option>
+                                        <option value="calcite-bgcolor-yellow-50" data-textcolor="calcite-text-dark">Calcite Yellow 50%</option>
+                                        <option value="calcite-bgcolor-yellow-25" data-textcolor="calcite-text-dark">Calcite Yellow 25%</option>
+                                        <option value="calcite-bgcolor-light-yellow" data-textcolor="calcite-text-dark">Calcite Light Yellow</option>
+                                        <option value="calcite-bgcolor-purple" data-textcolor="calcite-text-light">--- Purple ---</option>
+                                        <option value="calcite-bgcolor-dark-purple" data-textcolor="calcite-text-light">Calcite Dark Purple</option>
+                                        <option value="calcite-bgcolor-purple" data-textcolor="calcite-text-light">Calcite Purple</option>
+                                        <option value="calcite-bgcolor-purple-75" data-textcolor="calcite-text-dark">Calcite Purple 75%</option>
+                                        <option value="calcite-bgcolor-purple-50" data-textcolor="calcite-text-dark">Calcite Purple 50%</option>
+                                        <option value="calcite-bgcolor-purple-25" data-textcolor="calcite-text-dark">Calcite Purple 25%</option>
+                                        <option value="calcite-bgcolor-light-purple" data-textcolor="calcite-text-dark">Calcite Light Purple</option>
+                                        <option value="calcite-bgcolor-brown" data-textcolor="calcite-text-light">--- Brown ---</option>
+                                        <option value="calcite-bgcolor-dark-brown" data-textcolor="calcite-text-light">Calcite Dark Brown</option>
+                                        <option value="calcite-bgcolor-brown" data-textcolor="calcite-text-light">Calcite Brown</option>
+                                        <option value="calcite-bgcolor-brown-75" data-textcolor="calcite-text-light">Calcite Brown 75%</option>
+                                        <option value="calcite-bgcolor-brown-50" data-textcolor="calcite-text-dark">Calcite Brown 50%</option>
+                                        <option value="calcite-bgcolor-brown-25" data-textcolor="calcite-text-dark">Calcite Brown 25%</option>
+                                        <option value="calcite-bgcolor-light-brown" data-textcolor="calcite-text-dark">Calcite Light Brown</option>
+                                    </select>
+                                    <label class="checkbox-inline control-padding-top">
+                                        <input type="checkbox" data-dojo-attach-event="onClick:_setCalciteColorAll" id="settingsCalciteColorAll"/>Apply to all</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Color Picker - Collapse -->
+                <div id="colorPickerCollapse" class="form-group collapse">
+                    <div class="col-xs-offset-4 col-xs-8">
+                        <div class="row">
+                            <div class="form-box">
+                                <div class="col-xs-12">
+                                    <div data-dojo-attach-point="colorPickerDiv"></div>
+                                    <label class="checkbox-inline control-padding-top">
+                                        <input type="checkbox" data-dojo-attach-event="onClick:_setPickerColorAll" id="settingsPickerColorAll"/>Apply to all</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Text Color -->
+                <div class="form-group">
+                    <label for="settingsTextColor" class="col-xs-4 control-label">Text</label>
+                    <div class="col-xs-8">
+                        <select data-dojo-attach-event="onChange:_setTextColor" id="settingsTextColor" class="form-control control-padding-top">
+                            <option value="calcite-text-dark">Dark Text</option>
+                            <option value="calcite-text-light" selected>Light Text</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tab - Layout -->
+        <div role="tabpanel" class="tab-pane" id="calcite-styler-layout-content">
+            <div class="calcite-form-title">Set the layout and widget position</div>
+            <div class="form-horizontal calcite-form-padding">
+                <!-- Layout -->
+                <div class="form-group">
+                    <label for="settingsLayout" class="col-xs-3 control-label">Layout</label>
+                    <div class="col-xs-9">
+                        <select data-dojo-attach-event="onChange:_setLayout" id="settingsLayout" class="form-control">
+                            <option value="layout-top">Top</option>
+                            <option value="layout-top-space">Top Margin</option>
+                            <option value="layout-top-space-all">Top Margin All</option>
+                            <option value="layout-top-fixed" selected>Top Above Map</option>
+                            <option value="layout-bottom">Bottom</option>
+                            <option value="layout-bottom-space">Bottom Margin</option>
+                            <option value="layout-bottom-space-all">Bottom Margin All</option>
+                            <option value="layout-bottom-fixed">Bottom Below Map</option>
+                            <option value="layout-top">--- Custom Layouts ---</option>
+                            <option value="calcite-layout-small-title-top">Small Title Top</option>
+                            <option value="calcite-layout-small-title-bottom">Small Title Bottom</option>
+                            <option value="calcite-layout-large-title-top">Large Title Top</option>
+                            <option value="calcite-layout-large-title-bottom">Large Title Bottom</option>
+                            <option value="calcite-layout-inline-left">Inline Zoom Left</option>
+                            <option value="calcite-layout-inline-right">Inline Zoom Right</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Panel (left/right) -->
+                <div class="form-group">
+                    <label for="settingsPanel" class="col-xs-3 control-label">Panel</label>
+                    <div class="col-xs-9">
+                        <select data-dojo-attach-event="onChange:_setPanel" id="settingsPanel" class="form-control">
+                            <option value="calcite-panels-left">Left</option>
+                            <option value="calcite-panels-right" selected>Right</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Menu style -->
+                <div class="form-group">
+                    <label for="settingsMenu" class="col-xs-3 control-label">Menu</label>
+                    <div class="col-xs-9">
+                        <select data-dojo-attach-event="onChange:_setMenu" id="settingsMenu" class="form-control">
+                            <option value="" selected>Dropdown</option>
+                            <option value="calcite-menu-drawer">Drawer</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

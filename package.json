@@ -1,0 +1,28 @@
+{
+	"name": "cmv-calcite-maps",
+	"version": "v0.1.0",
+	"author": "Tim McGee, MoosePoint Technology",
+	"license": "MIT",
+	"year": "2017",
+    "homepage": "https://tmcgee.github.io/cmv-calcite-maps/",
+    "repository": "https://github.com/tmcgee/cmv-calcite-maps",
+	"dependencies": {
+        "csslint": "1.0.x",
+        "babel-eslint": "~7.1.1",
+        "eslint": "~3.14.1",
+        "grunt": "1.0.x",
+        "grunt-postcss": "0.8.x",
+        "grunt-contrib-clean": "1.0.x",
+        "grunt-contrib-connect": "1.0.x",
+        "grunt-contrib-copy": "1.0.x",
+        "grunt-contrib-csslint": "~2.0.0",
+        "grunt-contrib-cssmin": "1.0.x",
+        "grunt-eslint": "19.0.x",
+        "grunt-contrib-uglify": "2.0.x",
+        "grunt-contrib-watch": "1.0.x",
+        "grunt-newer": "1.2.x",
+        "grunt-open": "0.2.x",
+        "grunt-contrib-compress": "~1.4.1"
+	},
+	"engine": "node >= 4"
+}

@@ -1,0 +1,197 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* logo */
+.nav-brand {
+    background-image: url('https://cmv.io/images/rocket-logo.png');
+    background-repeat: no-repeat;
+    background-size: 62px 35px;
+    height: 35px;
+    margin-right: 10px;
+    width: 62px;
+}
+
+.calcite-layout-small-title .nav-brand {
+    background-size: 62px 35px;
+    height: 25px;
+    width: 44px;
+}
+/* end logo */
+
+/* proper margin for font-awesome icons in nav bar menu */
+.calcite-dropdown .dropdown-menu a>span.fa {
+    margin-right: 8px;
+}
+
+@media (min-height: 640px) {
+    .calcite-dropdown .dropdown-menu {
+        max-height: 580px;
+    }
+}
+
+@media (min-height: 740px) {
+    .calcite-dropdown .dropdown-menu {
+        max-height: 680px;
+    }
+}
+
+@media (min-height: 840px) {
+    .calcite-dropdown .dropdown-menu {
+        max-height: 780px;
+    }
+}
+
+/* panels */
+.calcite-panels {
+    z-index: 100;
+}
+
+/* place below the basemap widget (if used) */
+.calcite-panels-right {
+    margin-top: 50px;
+}
+
+.calcite-panels .panel-body td,
+.calcite-panels .panel-body th {
+    padding: 6px;
+}
+
+/* fixes some widget issues like the Esri editor widget */
+.calcite-panels .panel-body {
+    position:  relative;
+}
+.calcite-panels .panel-body a {
+    color: inherit;
+}
+/*
+@media (max-height: 767px) {
+    .calcite-panels .panel-body {
+        max-height: 500px;
+    }
+}
+@media (max-height: 700px) {
+    .calcite-panels .panel-body {
+        max-height: 400px;
+    }
+}
+*/
+/* end panels */
+
+
+/* cmv widgets over the map */
+.cmv-widgets {
+    position: fixed;
+    top: 15px;
+    z-index: 40;
+}
+.cmv-widgets > div {
+    margin-bottom: 5px;
+}
+.calcite-nav-top.calcite-margin-all.calcite-layout-inline-left .cmv-widgets,
+.calcite-nav-top.calcite-margin-all.calcite-layout-inline-right .cmv-widgets {
+    top: 90px;
+}
+@media (max-width: 768px) {
+    .cmv-widgets #basemaps_widget .dijitButtonText {
+        display: none;
+    }
+}
+.calcite-nav-top.calcite-margin-top .cmv-widgets,
+.calcite-nav-top.calcite-margin-all .cmv-widgets {
+    top: 80px;
+}
+.calcite-nav-top .cmv-widgets,
+.calcite-nav-top-fixed .cmv-widgets {
+    top: 65px;
+}
+.calcite-nav-top.calcite-layout-large-title .cmv-widgets {
+    top: 75px;
+}
+.calcite-nav-top.calcite-layout-small-title .cmv-widgets {
+    top: 55px;
+}
+.calcite-nav-bottom-fixed .cmv-widgets {
+    bottom: 50px;
+}
+.calcite-nav-bottom.calcite-layout-large-title .cmv-widgets {
+    bottom: 60px;
+}
+.calcite-nav-bottom.calcite-layout-small-title .cmv-widgets {
+    bottom: 40px;
+}
+.cmv-widgets {
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    z-index: 40;
+}
+
+.cmv-widgets-top-left {
+    left: 0;
+    position: absolute;
+    top: 90px;
+    z-index: 40;
+}
+
+.calcite-layout-inline-left .cmv-widgets-top-left,
+.calcite-layout-inline-right .cmv-widgets-top-left {
+    top: 0;
+}
+
+.cmv-widgets-top-left > div {
+    margin-bottom: 10px;
+}
+
+.cmv-widgets-top-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 40;
+}
+
+.cmv-widgets-bottom-left {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 40;
+}
+
+.cmv-widgets-bottom-right {
+    bottom: 0;
+    right: 15px;
+    position: absolute;
+    z-index: 40;
+}
+/* end cmv widgets over the map */
+
+/* fix text boxes in widgets to match the theme */
+.calcite .dijitTextBox {
+    background-color: inherit;
+}
+
+/* fixes for esri widgets */
+.calcite .esriLegendServiceLabel,
+.calcite .esriLegendLayerLabel,
+.calcite .simpleDirections .esriDirectionsButton,
+.calcite .simpleDirections .esriLinkButton {
+    color: inherit;
+}
+.calcite .simpleDirections .esriStopsGetDirections:before {
+    content: '\f277';
+    font-family: 'FontAwesome';
+    margin-right: 8px;
+}
+
+.calcite .simpleDirections .esriResultsPrint {
+    padding: 8px;
+}
+
+.calcite .simpleDirections .esriResultsPrint:before {
+    content: '\f02f';
+    font-family: 'FontAwesome';
+    font-size: 14px;
+}
+/* end fixes for esri widgets */

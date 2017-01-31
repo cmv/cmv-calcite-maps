@@ -1,0 +1,62 @@
+.cmvCalciteStylerWidget .form-box {
+    background-color: rgb(130,130,130);
+    background-color: rgba(130,130,130,.1);
+    border: 1px solid rgba(255,255,255,.35);
+    display: flex;
+    margin: 0 15px;
+    padding: 15px 0;
+}
+
+.cmvCalciteStylerWidget .control-padding-top {
+    padding-top: 5px;
+}
+
+.cmvCalciteStylerWidget .padding-right-none {
+    padding-right: 0;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriSwatchPreview.esriContainer,
+.cmvCalciteStylerWidget .esriColorPicker .esriHeader,
+.cmvCalciteStylerWidget .esriColorPicker .esriFooter,
+.cmvCalciteStylerWidget .esriColorPicker .esriSwatchEmpty,
+.cmvCalciteStylerWidget .esriColorPicker .esriPaletteOptions .esriPaletteToggle>input,
+.cmvCalciteStylerWidget .esriColorPicker .dijitReset .dijitToggleButtonIconChar,
+.cmvCalciteStylerWidget .esriColorPicker .esriPaletteOptions .esriPaletteToggle {
+    display: none;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriContainer {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriMiddle>div:first-child>div:nth-child(2) {
+    display: none;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriHexInput {
+    border-color: inherit;
+    margin-top: 10px;
+    width: 120px;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriSwatchRow {
+    line-height: 1;
+}
+
+.cmvCalciteStylerWidget .esriColorPicker .esriSwatch {
+    height: 12px;
+    width: 12px;
+}
+
+/* blank image */
+.cmvCalciteStylerWidget .esriColorPicker .esriSwatch:after {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAQAAAD8fJRsAAAAEElEQVR42mNkwAEYRyXQAQAIygAN1jcmhQAAAABJRU5ErkJggg==');
+}
+.cmvCalciteStylerWidget .esri-color-picker .esriHexInput .dijitInputInner {
+    font-size: 12px;
+    padding: 2px 4px;
+    width: 100%;
+}

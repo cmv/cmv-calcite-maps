@@ -1,0 +1,10 @@
+div#cmv-{type}-{id}.panel.collapse{open}
+    div#cmv-{type}-heading-{id}.panel-heading[role="tab"]
+        div.panel-title
+            a.panel-toggle.collapsed[role="button"][data-toggle="collapse"][href="#cmv-{type}-collapse-{id}"][aria-expanded="true"][aria-controls="cmv-collapse-{id}"]
+                span.fa.fa-fw.{iconClass}[aria-hidden="true"]
+                <span.panel-label $
+            <<a.panel-close[role="button"][data-toggle="collapse"][data-target="#cmv-{type}-{id}"]
+                span.esri-icon.esri-icon-close[aria-hidden="true"]
+    <<<<div#cmv-{type}-collapse-{id}.panel-collapse.collapse{open}[role="tabpanel"][aria-labelledby="cmv-{type}-heading-{id}"]
+        div#cmv-{type}-body-{id}.panel-body
