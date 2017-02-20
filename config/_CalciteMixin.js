@@ -57,7 +57,7 @@ define([
 
         panelWidgetOpened: false,
 
-        initPanes: function () {
+        postConfig: function () {
             for (var key in this.calciteItems) {
                 if (this.calciteItems.hasOwnProperty(key)) {
                     var item = this.calciteItems[key];
@@ -80,8 +80,12 @@ define([
                     }
                 }
             };
+
+            return this.inherited(arguments);
         },
 
+        // no need to execute these methods in _LayoutMixin so override them
+        initPanes: function () {},
         createPanes: function () {},
 
         _createTitlePaneWidget: function (parentId, widgetConfig) {
