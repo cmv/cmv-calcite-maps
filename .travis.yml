@@ -10,7 +10,7 @@ deploy:
     secure: PbeHwM34muUp/D+g9gbpBj/ABYtKRmPkgRpvSMl8zxFw/slFEoepA25komkh4QO1VGV5xGtUiIz8F6Rg+uhgWiid0F+GAxDjVc9NAUAeK9ONzKpo9H5f7JJrESBnEp06R6CVR/hVPN5v2UlKUJd2MoRYHKTM/GlnCY8/L+0j0bU=
   file: dist/cmv-calcite-maps.zip
   on:
-    repo: tmcgee/cmv-calcite-maps
+    repo: cmv/cmv-calcite-maps
     tags: true
     all_branches: true
   skip_cleanup: true

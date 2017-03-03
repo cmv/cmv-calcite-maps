@@ -1,11 +1,11 @@
 {
 	"name": "cmv-calcite-maps",
 	"version": "v0.1.0",
-	"author": "Tim McGee, MoosePoint Technology",
+    "author": "cmv.io - https://github.com/cmv/",
 	"license": "MIT",
 	"year": "2017",
-    "homepage": "https://tmcgee.github.io/cmv-calcite-maps/",
-    "repository": "https://github.com/tmcgee/cmv-calcite-maps",
+    "homepage": "https://cmv.github.io/cmv-calcite-maps/",
+    "repository": "https://github.com/cmv/cmv-calcite-maps",
 	"dependencies": {
         "csslint": "1.0.x",
         "babel-eslint": "~7.1.1",
