@@ -5,13 +5,13 @@
         async: true,
         packages: [{
             name: 'viewer',
-            location: 'https://cdn.rawgit.com/cmv/cmv-app/develop/viewer/js/viewer'
+            location: 'https://cdn.rawgit.com/cmv/cmv-app/v2.0.0-beta.1/viewer/js/viewer'
         }, {
             name: 'gis',
-            location: 'https://cdn.rawgit.com/cmv/cmv-app/develop/viewer/js/gis'
+            location: 'https://cdn.rawgit.com/cmv/cmv-app/v2.0.0-beta.1/viewer/js/gis'
         }, {
             name: 'cmvConfig',
-            location: 'https://cdn.rawgit.com/cmv/cmv-app/develop/viewer/js/config'
+            location: 'https://cdn.rawgit.com/cmv/cmv-app/v2.0.0-beta./viewer/js/config'
         }, {
             name: 'proj4js',
             location: '//cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15'
