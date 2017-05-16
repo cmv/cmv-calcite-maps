@@ -2,6 +2,7 @@ define([
     'dojo/_base/declare',
     'dojo/_base/lang',
     'dojo/_base/array',
+    'dojo/on',
     'dojo/query',
 
     'dijit/registry',
@@ -26,6 +27,7 @@ define([
     declare,
     lang,
     array,
+    on,
     domQuery,
 
     registry,
@@ -86,17 +88,20 @@ define([
                             'calcite-maps/calcitemaps-v0.3'
                         ], function () {
                             domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
-                                domQuery(e.target.parentNode).addClass('collapse');
+                                var parentNodes = domQuery(e.target.parentNode);
+                                parentNodes.addClass('collapse');
+                                domQuery(parentNodes[0].parentNode).removeClass('maximize');
                             });
                             domQuery('.calcite-panels .panel .panel-collapse').on('show.bs.collapse', function (e) {
                                 domQuery(e.target.parentNode).removeClass('collapse');
+
                                 var panelBody = domQuery(e.target.parentNode).query('.panel-body')[0];
                                 var panelWidgets = registry.findWidgets(panelBody);
                                 array.forEach(panelWidgets, function (widget) {
                                     if (widget.resize && typeof(widget.resize) === 'function') {
                                         window.setTimeout(function () {
                                             widget.resize();
-                                        }, 100);
+                                        }, 10);
                                     }
                                 });
                             });
@@ -132,6 +137,8 @@ define([
                     paneConfig.iconClass = paneConfig.iconClass || 'fa-window-maximize';
                     paneConfig.menuTitle = paneConfig.menuTitle || 'Show ' + paneConfig.title;
                     paneConfig.showInMenu = paneConfig.showInMenu || false;
+                    paneConfig.canClose = paneConfig.canClose || true;
+                    paneConfig.canMaximize = paneConfig.canMaximize || true;
 
                     this.calciteItems[type] = {
                         template: titlePaneTemplate,
@@ -153,6 +160,19 @@ define([
                             domNode: nodes[0]
                         };
                     }
+
+                    var containerNodes = domQuery('.navbar-fixed-' + key);
+                    var bodyNodes = containerNodes.query('.panel-collapse');
+                    var iconNodes = containerNodes.query('.panel-maximize');
+                    on(iconNodes, 'click', function () {
+                        containerNodes.addClass('maximize');
+                        bodyNodes.collapse('show');
+                    });
+                    iconNodes = containerNodes.query('.panel-restore');
+                    on(iconNodes, 'click', function () {
+                        containerNodes.removeClass('maximize');
+                        bodyNodes.collapse('show');
+                    });
                 }
             }
         },
@@ -195,6 +215,8 @@ define([
 
                 var opts = {
                     id: parentId,
+                    hideCloseButton: (widgetConfig.canClose === false) ? '.hidden' : '',
+                    hideMaximizeButton: (widgetConfig.canMaximize !== true) ? '.hidden' : '',
                     open: widgetConfig.open ? '.in' : '',
                     iconClass: iconClass.replace(/ /g, '.'),
                     type: type

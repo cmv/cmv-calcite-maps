@@ -57,6 +57,18 @@ html, body {
     padding-left: 7px;
 }
 
+.calcite-panels .panel .panel-icon {
+    font-size: 14px;
+    padding: 6px 8px;
+}
+
+.calcite-panels .panel .panel-icon,
+.calcite-panels .panel .panel-icon:active,
+.calcite-panels .panel .panel-icon:hover,
+.calcite-panels .panel .panel-icon:visited {
+    color: inherit;
+}
+
 .calcite-panels.calcite-panels-bottom .panel.collapse .panel-label,
 .calcite-panels.calcite-panels-bottom .panel.collapse .panel-close {
     display: inline-block !important;
@@ -99,15 +111,42 @@ html, body {
     bottom: 50px;
 }
 
-.calcite-panels-bottom .panel .panel-body {
-    height: 250px;
-    overflow:hidden;
-    padding: 0;
-    width:100%;
+.calcite-panels-bottom.maximize {
+    top: 0 !important;
+    z-index: 9999;
+}
+.calcite-panels-bottom.maximize .panel-maximize {
+    display: none !important;
 }
 
-.calcite-panels-bottom .panel {
+.calcite-panels-bottom.maximize .panel-restore {
+    display: inline-block !important;
+}
+
+.calcite-panels-bottom .panel,
+.calcite-panels-bottom .panel .panel-collapse {
+    height: 100% !important;
     margin-bottom: 0;
+    position: relative;
+    width: 100%;
+}
+
+.calcite-panels-bottom .panel .panel-collapse {
+    min-height: 250px;
+}
+
+.calcite-panels-bottom .panel .panel-body {
+    bottom: 0;
+    max-height: 100%;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.calcite-panels-bottom.maximize .panel .panel-body {
+    height: calc(100% - 36px);
 }
 /* end bottom panel */
 
@@ -377,6 +416,10 @@ html, body {
     background-color: rgba(33, 33, 33, 0.2);
     border-color: #424242;
     border-color: rgba(33, 33, 33, 0.25);
+}
+
+.calcite .dijitTab .dijitTabCloseButton {
+    float: none;
 }
 
 .calcite .dijitTab:focus * {
