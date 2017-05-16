@@ -1,7 +1,11 @@
 define([
     'dojo/_base/declare',
     'dojo/_base/lang',
+    'dojo/_base/array',
     'dojo/query',
+
+    'dijit/registry',
+
     'put-selector',
 
     'dojo/text!./templates/Calcite/titlePane.html',
@@ -21,7 +25,11 @@ define([
 ], function (
     declare,
     lang,
+    array,
     domQuery,
+
+    registry,
+
     put,
 
     titlePaneTemplate,
@@ -76,7 +84,23 @@ define([
                         require([
                             'dojo/domReady!',
                             'calcite-maps/calcitemaps-v0.3'
-                        ]);
+                        ], function () {
+                            domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
+                                domQuery(e.target.parentNode).addClass('collapse');
+                            });
+                            domQuery('.calcite-panels .panel .panel-collapse').on('show.bs.collapse', function (e) {
+                                domQuery(e.target.parentNode).removeClass('collapse');
+                                var panelBody = domQuery(e.target.parentNode).query('.panel-body')[0];
+                                var panelWidgets = registry.findWidgets(panelBody);
+                                array.forEach(panelWidgets, function (widget) {
+                                    if (widget.resize && typeof(widget.resize) === 'function') {
+                                        window.setTimeout(function () {
+                                            widget.resize();
+                                        }, 100);
+                                    }
+                                });
+                            });
+                        });
                     }
                 }
             };
