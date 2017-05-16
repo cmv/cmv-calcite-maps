@@ -454,7 +454,7 @@ define([
                 path: 'widgets/CalciteStyler',
                 position: 100,
                 title: 'Calcite Styler',
-                open: true,
+                open: false,
                 iconClass: 'fa-cog',
                 options: {}
             },
