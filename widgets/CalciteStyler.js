@@ -37,7 +37,7 @@ function (
         NAVBAR: '.calcite-navbar',
         DROPDOWN: '.calcite-dropdown',
         DROPDOWN_MENU: '.calcite-dropdown .dropdown-menu',
-        PANELS: '.calcite-panels[role="tablist"]',
+        PANELS: '.calcite-panels',
         MAP: '.calcite-map'
     };
 
@@ -68,7 +68,7 @@ function (
         nav: 'navbar-fixed-top navbar-fixed-bottom',
 
         // Panels
-        panels: 'calcite-panels-right calcite-panels-left'
+        panels: 'calcite-panels-right calcite-panels-left calcite-panels-bottom'
     };
 
     return declare([_WidgetBase, _TemplatedMixin], {
@@ -594,9 +594,9 @@ function (
                 this.styleSettings.panel.bgRgbaColor = CALCITE_THEME_STYLES.RGBA_DEFAULT;
             } else {
                 // Dropdown
-                // this.styleSettings.dropdown.bgStyle = bgStyle || this.styleSettings.dropdown.bgStyle;
-                // this.styleSettings.dropdown.textStyle = textStyle || this.styleSettings.dropdown.textStyle;
-                // this.styleSettings.dropdown.bgRgbaColor = bgRgbaColor !== null ? bgRgbaColor : this.styleSettings.dropdown.bgRgbaColor;
+                this.styleSettings.dropdown.bgStyle = bgStyle || this.styleSettings.dropdown.bgStyle;
+                this.styleSettings.dropdown.textStyle = textStyle || this.styleSettings.dropdown.textStyle;
+                this.styleSettings.dropdown.bgRgbaColor = bgRgbaColor !== null ? bgRgbaColor : this.styleSettings.dropdown.bgRgbaColor;
                 // Panel
                 this.styleSettings.panel.bgStyle = bgStyle || this.styleSettings.panel.bgStyle;
                 this.styleSettings.panel.textStyle = textStyle || this.styleSettings.panel.textStyle;
@@ -610,9 +610,9 @@ function (
             this.setTextThemeStyle(CALCITE_THEME_SELECTORS.NAVBAR, this.styleSettings.navbar.textStyle);
             this.setBgRgbaColor(CALCITE_THEME_SELECTORS.NAVBAR, this.styleSettings.navbar.bgRgbaColor);
             // Dropdown
-            // this.setBgThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, this.styleSettings.dropdown.bgStyle);
-            // this.setTextThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, this.styleSettings.dropdown.textStyle);
-            // this.setBgRgbaColor(CALCITE_THEME_SELECTORS.DROPDOWN_MENU, this.styleSettings.dropdown.bgRgbaColor);
+            this.setBgThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, this.styleSettings.dropdown.bgStyle);
+            this.setTextThemeStyle(CALCITE_THEME_SELECTORS.DROPDOWN, this.styleSettings.dropdown.textStyle);
+            this.setBgRgbaColor(CALCITE_THEME_SELECTORS.DROPDOWN_MENU, this.styleSettings.dropdown.bgRgbaColor);
             // Panel
             this.setBgThemeStyle(CALCITE_THEME_SELECTORS.PANELS, this.styleSettings.panel.bgStyle);
             this.setTextThemeStyle(CALCITE_THEME_SELECTORS.PANELS, this.styleSettings.panel.textStyle);
