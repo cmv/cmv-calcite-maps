@@ -86,7 +86,52 @@ define([
 
         // no need to execute these methods in _LayoutMixin so override them
         initPanes: function () {},
-        createPanes: function () {},
+
+        // mimic the dojo panes
+        createPanes: function () {
+            var key,
+                type = 'pane',
+                panes = this.config.panes;
+
+            function properCaseString (s) {
+                return s.toLowerCase().replace(/^(.)|\s(.)/g, function ($1) {
+                    return $1.toUpperCase();
+                });
+            }
+
+            for (key in panes) {
+                if (panes.hasOwnProperty(key)) {
+                    //build the pane
+                    var paneConfig = panes[key];
+                    paneConfig.type = type;
+                    paneConfig.title = paneConfig.title || properCaseString(key) + ' Pane';
+                    paneConfig.iconClass = paneConfig.iconClass || 'fa-window-maximize';
+                    paneConfig.menuTitle = paneConfig.menuTitle || 'Show ' + paneConfig.title;
+                    paneConfig.showInMenu = paneConfig.showInMenu || false;
+
+                    this.calciteItems[type] = {
+                        template: titlePaneTemplate,
+                        container: domQuery('.navbar-fixed-' + key)[0]
+                    };
+                    var retVal = this._createBootstrapWidget(key, paneConfig);
+                    if (paneConfig.content) {
+                        var paneNodes = domQuery('#' + retVal.containerNode);
+                        if (paneNodes) {
+                            paneNodes[0].innerHTML = paneConfig.content;
+                        }
+                    }
+
+                    // add the pane to panes object for toggling
+                    var paneID = 'cmv-' + type + '-' + key;
+                    var nodes = domQuery('#' + paneID);
+                    if (nodes) {
+                        this.panes[paneID] = {
+                            domNode: nodes[0]
+                        };
+                    }
+                }
+            }
+        },
 
         _createTitlePaneWidget: function (parentId, widgetConfig) {
             var item = this.calciteItems.titlePane;

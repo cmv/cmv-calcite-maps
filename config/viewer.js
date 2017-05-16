@@ -41,6 +41,17 @@ define([
             map: 'mapViewDiv'
         },
 
+        panes: {
+            bottom: {
+                type: 'titlePane',
+                title: 'Tables',
+                iconClass: 'fa-table',
+                open: false,
+                showInMenu: true,
+                content: '<div id="attributesContainer"></div>'
+            }
+        },
+
         // custom titles
         titles: {
             header: 'CMV with Calcite Maps',
