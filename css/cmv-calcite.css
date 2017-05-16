@@ -26,6 +26,10 @@ html, body {
     margin-right: 8px;
 }
 
+.calcite-dropdown .dropdown-menu .active > a {
+    background-color: transparent !important;
+}
+
 @media (min-height: 640px) {
     .calcite-dropdown .dropdown-menu {
         max-height: 580px;
@@ -49,6 +53,15 @@ html, body {
     z-index: 100;
 }
 
+.calcite-panels .panel .panel-toggle {
+    padding-left: 7px;
+}
+
+.calcite-panels.calcite-panels-bottom .panel.collapse .panel-label,
+.calcite-panels.calcite-panels-bottom .panel.collapse .panel-close {
+    display: inline-block !important;
+}
+
 /* place below the basemap widget (if used) */
 .calcite-panels-right {
     margin-top: 50px;
@@ -63,62 +76,74 @@ html, body {
 .calcite-panels .panel-body {
     position:  relative;
 }
+
 .calcite-panels .panel-body a {
     color: inherit;
 }
-/*
-@media (max-height: 767px) {
-    .calcite-panels .panel-body {
-        max-height: 500px;
-    }
-}
-@media (max-height: 700px) {
-    .calcite-panels .panel-body {
-        max-height: 400px;
-    }
-}
-*/
 /* end panels */
+
+/* bottom panel */
+.calcite-panels-bottom {
+    bottom: 0;
+    left: 0;
+    min-height: 0;
+    overflow: hidden;
+    position: absolute;
+    resize: vertical;
+    right: 0;
+    top: auto !important;
+    z-index: 99;
+}
+
+.calcite-nav-bottom-fixed .calcite-panels-bottom {
+    bottom: 50px;
+}
+
+.calcite-panels-bottom .panel .panel-body {
+    height: 250px;
+    overflow:hidden;
+    padding: 0;
+    width:100%;
+}
+
+.calcite-panels-bottom .panel {
+    margin-bottom: 0;
+}
+/* end bottom panel */
 
 
 /* cmv widgets over the map */
-.cmv-widgets {
-    position: fixed;
-    top: 15px;
-    z-index: 40;
-}
-.cmv-widgets > div {
-    margin-bottom: 5px;
-}
 .calcite-nav-top.calcite-margin-all.calcite-layout-inline-left .cmv-widgets,
 .calcite-nav-top.calcite-margin-all.calcite-layout-inline-right .cmv-widgets {
     top: 90px;
 }
-@media (max-width: 768px) {
-    .cmv-widgets #basemaps_widget .dijitButtonText {
-        display: none;
-    }
-}
+
 .calcite-nav-top.calcite-margin-top .cmv-widgets,
 .calcite-nav-top.calcite-margin-all .cmv-widgets {
     top: 80px;
 }
+
 .calcite-nav-top .cmv-widgets,
 .calcite-nav-top-fixed .cmv-widgets {
     top: 65px;
 }
+
 .calcite-nav-top.calcite-layout-large-title .cmv-widgets {
     top: 75px;
 }
+
 .calcite-nav-top.calcite-layout-small-title .cmv-widgets {
     top: 55px;
 }
+
 .calcite-nav-bottom-fixed .cmv-widgets {
     bottom: 50px;
 }
+
 .calcite-nav-bottom.calcite-layout-large-title .cmv-widgets {
     bottom: 60px;
 }
+
 .calcite-nav-bottom.calcite-layout-small-title .cmv-widgets {
     bottom: 40px;
 }
@@ -141,13 +166,22 @@ html, body {
     top: 0;
 }
 
-.cmv-widgets-top-left > div {
+.cmv-widgets-top-left > div,
+.cmv-widgets-top-right > div {
     margin-bottom: 10px;
+}
+
+.cmv-widgets-top-center {
+    position: absolute;
+    top: 0;
+    width:  100%;
+    z-index: 999;
 }
 
 .cmv-widgets-top-right {
     position: absolute;
     right: 0;
+    text-align: right;
     top: 0;
     z-index: 40;
 }
@@ -161,24 +195,315 @@ html, body {
 
 .cmv-widgets-bottom-right {
     bottom: 0;
-    right: 15px;
     position: absolute;
+    right: 15px;
     z-index: 40;
+}
+
+/* center and size the growler */
+.cmv-widgets .gis-dijit-Growl {
+    margin: auto;
+    max-width: 320px;
+}
+
+@media (max-width: 768px) {
+    .cmv-widgets #basemaps_widget .dijitButtonText {
+        display: none;
+    }
+    .cmv-widgets .gis-dijit-Growl {
+        max-width: 100%;
+    }
 }
 /* end cmv widgets over the map */
 
-/* fix text boxes in widgets to match the theme */
-.calcite .dijitTextBox {
+/* dgrid */
+.calcite .dgrid-header,
+.calcite .dgrid-footer {
+    color: inherit;
+}
+
+.calcite .dgrid-footer {
     background-color: inherit;
 }
+
+.calcite .calcite-text-light .dgrid-header {
+    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.calcite .calcite-text-dark .dgrid-header {
+    background-color: #424242;
+    background-color: rgba(33, 33, 33, 0.1);
+}
+
+.calcite .dgrid-cell {
+    border-left-width: 0;
+    border-top-width: 0;
+}
+.calcite .dgrid {
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.calcite .calcite-text-light .dgrid-header .dgrid-cell {
+    border-color: #F4F4F4;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.calcite .calcite-text-dark .dgrid-header .dgrid-cell {
+    border-color: #424242;
+    border-color: rgba(33, 33, 33, 0.25);
+}
+
+.calcite .dgrid-content .dgrid-cell {
+    background-color: inherit;
+    color: inherit;
+}
+
+.calcite .dgrid-selected,
+.calcite .dgrid-footer input,
+.calcite .dgrid-footer select {
+    color: inherit;
+}
+
+.calcite .calcite-text-light .dgrid-selected,
+.calcite .calcite-text-light .dgrid-footer input,
+.calcite .calcite-text-light .dgrid-footer select {
+    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.calcite .calcite-text-dark .dgrid-selected,
+.calcite .calcite-text-dark .dgrid-footer input,
+.calcite .calcite-text-dark .dgrid-footer select {
+    background-color: #424242;
+    background-color: rgba(33, 33, 33, 0.1);
+}
+
+.calcite .dgrid-selected {
+    background-color: inherit;
+    color: inherit;
+}
+/* end dgrid */
+
+
+/* toolbar */
+.calcite .dijitToolbar {
+    background-color: inherit;
+    border-width: 0;
+    color: inherit;
+    padding: 5px 10px;
+}
+
+.calcite .dijitToolbar .dijitButtonNode,
+.calcite .dijitToolbar .dijitButtonNode:hover,
+.calcite .dijitToolbar .dijitButtonNode:focus {
+    border-style: solid;
+    border-width: 1px;
+    color: inherit;
+}
+
+.calcite .dijitToolbar .dijitButtonNode:focus * {
+    outline: none !important;
+}
+
+.calcite .calcite-text-light .dijitToolbar .dijitButtonNode {
+    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #F4F4F4;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.calcite .calcite-text-dark .dijitToolbar .dijitButtonNode {
+    background-color: #424242;
+    background-color: rgba(33, 33, 33, 0.1);
+    border-color: #424242;
+    border-color: rgba(33, 33, 33, 0.25);
+}
+
+.calcite .dijitToolbar .dijitButton .dijitButtonContents {
+    padding: 4px 10px;
+}
+/* end toolbar */
+
+
+/* fix tabs to match the theme */
+.calcite .dijitTab,
+.calcite .dijitTab:hover,
+.calcite .dijitTab:focus,
+.calcite .dijitTabChecked,
+.calcite .dijitTabChecked:hover,
+.calcite .dijitTabChecked:focus,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:hover,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:focus,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:hover,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:focus {
+    background-color: inherit;
+    border-color: transparent;
+    color: inherit;
+    margin-right: 4px;
+    padding: 4px 12px;
+}
+
+.calcite .calcite-text-light .dijitTab:hover,
+.calcite .calcite-text-light .dijitTab:focus,
+.calcite .calcite-text-light .dijitTabChecked,
+.calcite .calcite-text-light .dijitTabChecked:hover,
+.calcite .calcite-text-light .dijitTabChecked:focus,
+.calcite .calcite-text-light .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:hover,
+.calcite .calcite-text-light .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:focus,
+.calcite .calcite-text-light .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked,
+.calcite .calcite-text-light .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:hover,
+.calcite .calcite-text-light .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:focus {
+    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #F4F4F4;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.calcite .calcite-text-dark .dijitTab:hover,
+.calcite .calcite-text-dark .dijitTab:focus,
+.calcite .calcite-text-dark .dijitTabChecked,
+.calcite .calcite-text-dark .dijitTabChecked:hover,
+.calcite .calcite-text-dark .dijitTabChecked:focus,
+.calcite .calcite-text-dark .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:hover,
+.calcite .calcite-text-dark .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:focus,
+.calcite .calcite-text-dark .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked,
+.calcite .calcite-text-dark .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:hover,
+.calcite .calcite-text-dark .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:focus {
+    background-color: #424242;
+    background-color: rgba(33, 33, 33, 0.2);
+    border-color: #424242;
+    border-color: rgba(33, 33, 33, 0.25);
+}
+
+.calcite .dijitTab:focus * {
+    outline: none !important;
+}
+
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:hover,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTab:focus,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:hover,
+.calcite .dijitTabContainerTop .dijitTabContainerTop-tabs .dijitTabChecked:focus,
+.calcite .dijitTabChecked,
+.calcite .dijitTabChecked:hover,
+.calcite .dijitTabChecked:focus {
+    border-bottom-color: inherit;
+    border-width: 1px;
+}
+
+.calcite .dijitTabCloseButton {
+    background-color: inherit;
+    color: inherit;
+}
+
+.calcite .dijitTabListWrapper {
+    min-height: 46px;
+    padding:  5px;
+}
+
+.calcite .dijitTabController {
+    border-style: solid;
+    border-width: 1px 1px 0;
+    width: 100% !important;
+}
+
+.calcite .calcite-text-light .dijitTabController {
+    background-color: #F4F4F4;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #F4F4F4;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.calcite .calcite-text-dark .dijitTabController {
+    background-color: #424242;
+    background-color: rgba(33, 33, 33, 0.1);
+    border-color: #424242;
+    border-color: rgba(33, 33, 33, 0.25);
+}
+
+.calcite .dijitTabContainerTop-tabs,
+.calcite .dijitTabContainerBottom-tabs,
+.calcite .dijitTabContainerLeft-tabs,
+.calcite .dijitTabContainerRight-tabs {
+    background-color: inherit;
+    color: inherit;
+}
+
+
+.calcite .dijitTabContainerTop-dijitContentPane,
+.calcite .dijitTabContainerBottom-dijitContentPane,
+.calcite .dijitTabContainerLeft-dijitContentPane,
+.calcite .dijitTabContainerRight-dijitContentPane {
+    background-color: inherit;
+    color: inherit;
+}
+/* end tabs */
+
+
+/* fix text boxes in widgets to match the theme */
+.calcite .dijitSelect,
+.calcite .dijitTextBox,
+.calcite select,
+.calcite input {
+    background-color: inherit;
+    color: inherit;
+}
+
+.calcite .dijitSelect:hover,
+.calcite .dijitSelect:active,
+.calcite .dijitSelect:focus {
+    background-color: inherit;
+    border-color: inherit;
+    color: inherit;
+}
+
+/* fix positioning of draw buttons */
+.calcite .list-inline>li .dijitButton {
+    margin-bottom: 5px;
+}
+/* end fix positioning of draw buttons */
+
+/* fixes for cmv search widget */
+.calcite .cmvSearchWidget .dijitToggleButton,
+.calcite .cmvSearchWidget .dijitButton {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.calcite .cmvSearchWidget .dijitButton .dijitButtonContents {
+    padding: 6px 11px;
+}
+
+.calcite .cmvSearchWidget .dijitButtonNode .dijitIcon {
+    font-size:  16px;
+    line-height: 0;
+    margin-right: 0;
+}
+
+.calcite .cmvSearchWidget .dijitToggleButton .dijitIcon {
+    margin: 0;
+}
+
+.calcite .cmvSearchWidget .dijitButtonNode .dijitButtonText {
+    margin-left: 6px;
+}
+
+/* fixes for cmv search widget */
+
 
 /* fixes for esri widgets */
 .calcite .esriLegendServiceLabel,
 .calcite .esriLegendLayerLabel,
 .calcite .simpleDirections .esriDirectionsButton,
 .calcite .simpleDirections .esriLinkButton {
+    background-color: inherit;
     color: inherit;
 }
+
 .calcite .simpleDirections .esriStopsGetDirections:before {
     content: '\f277';
     font-family: 'FontAwesome';
