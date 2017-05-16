@@ -120,6 +120,8 @@ define([
                 var type = widgetConfig.type,
                     iconClass = widgetConfig.iconClass || 'fa',
                     title = widgetConfig.title || 'Widget',
+                    menuTitle = widgetConfig.menuTitle || title,
+                    showInMenu = (widgetConfig.showInMenu !== false) ? true : false,
                     dataToggle = item.dataToggle;
 
                 var opts = {
@@ -131,12 +133,14 @@ define([
 
                 put(item.container, lang.replace(item.template, opts), (type !== 'floating') ? title : '');
 
-                item = this.calciteItems.menuItem;
-                opts.dataToggle = (dataToggle) ? '[data-toggle="' + dataToggle + '"]' : '';
-                opts.role = '[role="button"]';
-                var visibilityClass = widgetConfig.visibilityClass || 'show';
-                opts.visibilityClass = visibilityClass.replace(/ /g, '.');
-                put(item.container, lang.replace(item.template, opts), title);
+                if (showInMenu) {
+                    item = this.calciteItems.menuItem;
+                    opts.dataToggle = (dataToggle) ? '[data-toggle="' + dataToggle + '"]' : '';
+                    opts.role = '[role="button"]';
+                    var visibilityClass = widgetConfig.visibilityClass || 'show';
+                    opts.visibilityClass = visibilityClass.replace(/ /g, '.');
+                    put(item.container, lang.replace(item.template, opts), menuTitle);
+                }
 
                 containerNode = 'cmv-' + type + '-body-' + parentId;
             }
