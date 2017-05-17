@@ -48,6 +48,16 @@ html, body {
     }
 }
 
+
+/*
+    Ensure that popup menus are above
+    all other elements including modal dialogs
+*/
+.calcite .dijitPopup {
+    z-index: 2147483647 !important;
+}
+
+
 /* headings for modal dialogs */
 .calcite-floating .modal .modal-heading {
     font-size: 18px;
