@@ -96,6 +96,9 @@ define([
                                 domQuery(e.target.parentNode).removeClass('collapse');
                                 this._resizePanelWidgets(e.target.parentNode);
                             }));
+                            domQuery('.calcite-panels .panel').on('hidden.bs.collapse', function (e) {
+                                domQuery(e.target.parentNode).removeClass('maximize');
+                            });
                         }));
                     })
                 }
