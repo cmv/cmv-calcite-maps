@@ -82,31 +82,22 @@ define([
                 type: 'invisible',
                 path: 'dijit/_WidgetBase',
                 options: {
-                    startup: function () {
+                    startup: lang.hitch(this, function () {
                         require([
                             'dojo/domReady!',
                             'calcite-maps/calcitemaps-v0.3'
-                        ], function () {
+                        ], lang.hitch(this, function () {
                             domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
                                 var parentNodes = domQuery(e.target.parentNode);
                                 parentNodes.addClass('collapse');
                                 domQuery(parentNodes[0].parentNode).removeClass('maximize');
                             });
-                            domQuery('.calcite-panels .panel .panel-collapse').on('show.bs.collapse', function (e) {
+                            domQuery('.calcite-panels .panel .panel-collapse').on('show.bs.collapse', lang.hitch(this, function (e) {
                                 domQuery(e.target.parentNode).removeClass('collapse');
-
-                                var panelBody = domQuery(e.target.parentNode).query('.panel-body')[0];
-                                var panelWidgets = registry.findWidgets(panelBody);
-                                array.forEach(panelWidgets, function (widget) {
-                                    if (widget.resize && typeof(widget.resize) === 'function') {
-                                        window.setTimeout(function () {
-                                            widget.resize();
-                                        }, 10);
-                                    }
-                                });
-                            });
-                        });
-                    }
+                                this._resizePanelWidgets(e.target.parentNode);
+                            }));
+                        }));
+                    })
                 }
             };
 
@@ -131,6 +122,7 @@ define([
             for (key in panes) {
                 if (panes.hasOwnProperty(key)) {
                     //build the pane
+                    var containerNodes = domQuery('.navbar-fixed-' + key);
                     var paneConfig = panes[key];
                     paneConfig.type = type;
                     paneConfig.title = paneConfig.title || properCaseString(key) + ' Pane';
@@ -142,7 +134,7 @@ define([
 
                     this.calciteItems[type] = {
                         template: titlePaneTemplate,
-                        container: domQuery('.navbar-fixed-' + key)[0]
+                        container: containerNodes[0]
                     };
                     var retVal = this._createBootstrapWidget(key, paneConfig);
                     if (paneConfig.content) {
@@ -161,7 +153,7 @@ define([
                         };
                     }
 
-                    var containerNodes = domQuery('.navbar-fixed-' + key);
+                    on(window, 'resize', lang.hitch(this, '_resizePanelWidgets', containerNodes));
                     var bodyNodes = containerNodes.query('.panel-collapse');
                     var iconNodes = containerNodes.query('.panel-maximize');
                     on(iconNodes, 'click', function () {
@@ -175,6 +167,20 @@ define([
                     });
                 }
             }
+        },
+
+        _resizePanelWidgets: function (selector) {
+            var panelBody = domQuery(selector);
+            array.forEach(panelBody, function (panel) {
+                var panelWidgets = registry.findWidgets(panel);
+                array.forEach(panelWidgets, function (widget) {
+                    if (widget.resize && typeof(widget.resize) === 'function') {
+                        window.setTimeout(function () {
+                            widget.resize();
+                        }, 10);
+                    }
+                });
+            });
         },
 
         _createTitlePaneWidget: function (parentId, widgetConfig) {
