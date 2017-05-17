@@ -15,13 +15,8 @@ define([
     'dojo/text!./templates/Calcite/menuItem.html',
 
     // Bootstrap
-    'bootstrap/Button',
     'bootstrap/Collapse',
-    'bootstrap/Dropdown',
-    'bootstrap/Modal',
-    'bootstrap/Popover',
-    'bootstrap/Tab',
-    'bootstrap/Tooltip'
+    'bootstrap/Modal'
 
 ], function (
     declare,

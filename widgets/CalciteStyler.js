@@ -15,7 +15,10 @@ define([
 
     'dojo/text!./CalciteStyler/templates/CalciteStyler.html',
 
-    'xstyle/css!./CalciteStyler/css/CalciteStyler.css'
+    'xstyle/css!./CalciteStyler/css/CalciteStyler.css',
+
+    // Dojo Bootstrap
+    'bootstrap/Tab'
 ],
 function (
     declare, _WidgetBase, _TemplatedMixin,
