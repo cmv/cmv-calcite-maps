@@ -48,6 +48,29 @@ html, body {
     }
 }
 
+/* headings for modal dialogs */
+.calcite-floating .modal .modal-heading {
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+}
+
+.calcite-floating .modal .modal-heading span.fa {
+    margin-right: 8px;
+}
+
+.calcite-floating.calcite-text-light .modal .modal-heading {
+    background-color: #424242;
+    color: #fff;
+}
+
+.calcite-floating.calcite-text-dark .modal .modal-heading {
+    background-color: #FFF;
+    color: #424242;
+}
+/* end headings for modal dialogs */
+
+
 /* panels */
 .calcite-panels {
     z-index: 100;

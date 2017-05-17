@@ -51,7 +51,7 @@ define([
             },
             floating: {
                 template: floatingTemplate,
-                container: window.document.body,
+                container: domQuery('div.calcite-floating')[0],
                 dataToggle: 'modal'
             },
             menuItem: {
@@ -219,6 +219,7 @@ define([
 
                 var opts = {
                     id: parentId,
+                    hideTitle: (widgetConfig.showTitle === false) ? '.hidden' : '', // for floating dialogs
                     hideCloseButton: (widgetConfig.canClose === false) ? '.hidden' : '',
                     hideMaximizeButton: (widgetConfig.canMaximize !== true) ? '.hidden' : '',
                     open: widgetConfig.open ? '.in' : '',
@@ -226,7 +227,7 @@ define([
                     type: type
                 };
 
-                put(item.container, lang.replace(item.template, opts), (type !== 'floating') ? title : '');
+                put(item.container, lang.replace(item.template, opts), title);
 
                 if (showInMenu) {
                     item = this.calciteItems.menuItem;

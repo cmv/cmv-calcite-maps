@@ -464,15 +464,14 @@ define([
                 type: 'floating',
                 position: 100,
                 path: 'dijit/layout/ContentPane',
-                title: 'About CMV',
+                title: 'Using CMV with Calcite Maps',
+                menuTitle: 'About CMV',
                 open: true,
                 iconClass: 'fa-info',
                 options: {
                     className: 'text-center',
                     style: 'max-height:90%;',
                     content: [
-                        '<h4 style="color:#C00;">Using CMV with Calcite Maps</h4>',
-                        '<hr/>',
                         '<div class="text-center" style="min-width:260px;font-size:60px;vertical-align:middle;width:90%;white-space:no-break;">',
                         '<a href="https://cmv.io/" target="_blank"><image style="height:60px;margin-top:-18px;" src="https://cmv.io/images/rocket-logo.png"></a>',
                         '<span class="fa fa-fw fa-plus"></span>',
@@ -480,7 +479,7 @@ define([
                         '</div>',
                         '<h5>This is a demonstration of using <a href="https://cmv.io/" target="_blank">CMV</a> with Esri\'s <a href="http://esri.github.io/calcite-maps/" target="_blank">Calcite Maps</a>. You can use the styler widget to explore the different colors, styles and layouts. When you are done, apply the CSS styles and classes to your own apps.</h5>',
                         '<br/>',
-                        '<button type="button" class="btn btn-success btn-lg"  data-dismiss="modal">Get started</a>'
+                        '<button type="button" class="btn btn-success btn-lg"  data-dismiss="modal">Get Started</a>'
                     ].join('')
                 }
             }
