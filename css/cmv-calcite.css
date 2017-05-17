@@ -146,7 +146,7 @@ html, body {
 
 .calcite-panels-bottom.maximize {
     top: 0 !important;
-    z-index: 9999;
+    z-index: 1050;
 }
 .calcite-panels-bottom.maximize .panel-maximize {
     display: none !important;
