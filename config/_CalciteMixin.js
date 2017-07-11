@@ -4,6 +4,7 @@ define([
     'dojo/_base/array',
     'dojo/on',
     'dojo/query',
+    'dojo/Stateful',
 
     'dijit/registry',
 
@@ -24,6 +25,7 @@ define([
     array,
     on,
     domQuery,
+    Stateful,
 
     registry,
 
@@ -80,7 +82,7 @@ define([
                     startup: lang.hitch(this, function () {
                         require([
                             'dojo/domReady!',
-                            'calcite-maps/calcitemaps-v0.3'
+                            'calcite-maps/calcitemaps-v0.4'
                         ], lang.hitch(this, function () {
                             domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
                                 var parentNodes = domQuery(e.target.parentNode);
@@ -241,9 +243,10 @@ define([
                 containerNode = 'cmv-' + type + '-body-' + parentId;
             }
 
-            return {
-                containerNode: containerNode
-            };
+            return new Stateful({
+                containerNode: containerNode,
+                open: widgetConfig.open
+            });
         }
     });
 });
