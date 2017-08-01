@@ -15,6 +15,8 @@ define([
     'dojo/text!./templates/Calcite/floating.html',
     'dojo/text!./templates/Calcite/menuItem.html',
 
+    'dojo/NodeList-traverse',
+
     // Bootstrap
     'bootstrap/Collapse',
     'bootstrap/Modal'
@@ -243,10 +245,20 @@ define([
                 containerNode = 'cmv-' + type + '-body-' + parentId;
             }
 
-            return new Stateful({
+            var widget = new Stateful({
                 containerNode: containerNode,
                 open: widgetConfig.open
             });
+
+            var dom = domQuery('#' + widget.containerNode);
+            dom.parent().on('show.bs.collapse', function () {
+                widget.set('open', true);
+            });
+            dom.parent().on('hide.bs.collapse', function () {
+                widget.set('open', false);
+            });
+
+            return widget;
         }
     });
 });
