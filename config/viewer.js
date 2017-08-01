@@ -433,6 +433,7 @@ define([
                 iconClass: 'fa-info-circle',
                 open: false,
                 position: 3,
+                preload: true,
                 options: 'cmvConfig/identify'
             },
             locale: {
