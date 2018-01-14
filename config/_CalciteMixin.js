@@ -84,7 +84,7 @@ define([
                     startup: lang.hitch(this, function () {
                         require([
                             'dojo/domReady!',
-                            'calcite-maps/calcitemaps-v0.4'
+                            'calcite-maps/calcitemaps-v0.6'
                         ], lang.hitch(this, function () {
                             domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
                                 var parentNodes = domQuery(e.target.parentNode);
