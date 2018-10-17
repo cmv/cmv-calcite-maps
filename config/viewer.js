@@ -45,7 +45,7 @@ define([
             bottom: {
                 type: 'titlePane',
                 title: 'Tables',
-                iconClass: 'fa-table',
+                iconClass: 'fas fa-fw fa-table',
                 open: false,
                 showInMenu: true,
                 content: '<div id="attributesContainer"></div>'
@@ -228,7 +228,7 @@ define([
                 path: 'esri/dijit/Search',
                 title: 'Search',
                 visibilityClass: 'visible-xs',
-                iconClass: 'fa-search',
+                iconClass: 'fas fa-fw fa-search',
                 position: 0,
                 options: {
                     map: true,
@@ -250,7 +250,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/LayerControl',
                 title: 'Layers',
-                iconClass: 'fa-th-list',
+                iconClass: 'fas fa-fw fa-th-list',
                 open: false,
                 position: 0,
                 options: {
@@ -267,7 +267,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/Legend',
                 title: 'Legend',
-                iconClass: 'fa-picture-o',
+                iconClass: 'far fa-fw fa-images',
                 open: false,
                 position: 1,
                 options: {
@@ -281,7 +281,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/Bookmarks',
                 title: 'Bookmarks',
-                iconClass: 'fa-bookmark',
+                iconClass: 'fas fa-fw fa-bookmark',
                 open: false,
                 position: 2,
                 options: 'cmvConfig/bookmarks'
@@ -293,7 +293,7 @@ define([
                 canFloat: true,
                 path: 'gis/dijit/Find',
                 title: 'Find',
-                iconClass: 'fa-search',
+                iconClass: 'fas fa-fw fa-search',
                 open: false,
                 position: 3,
                 options: 'cmvConfig/find'
@@ -305,7 +305,7 @@ define([
                 canFloat: true,
                 path: 'gis/dijit/Draw',
                 title: 'Draw',
-                iconClass: 'fa-paint-brush',
+                iconClass: 'fas fa-fw fa-paint-brush',
                 open: false,
                 position: 4,
                 options: {
@@ -320,7 +320,7 @@ define([
                 canFloat: true,
                 path: 'gis/dijit/Measurement',
                 title: 'Measure',
-                iconClass: 'fa-expand',
+                iconClass: 'fas fa-fw fa-expand',
                 open: false,
                 position: 5,
                 options: {
@@ -337,7 +337,7 @@ define([
                 canFloat: true,
                 path: 'gis/dijit/Print',
                 title: 'Print',
-                iconClass: 'fa-print',
+                iconClass: 'fas fa-fw fa-print',
                 open: false,
                 position: 6,
                 options: {
@@ -356,7 +356,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/Directions',
                 title: 'Directions',
-                iconClass: 'fa-map-signs',
+                iconClass: 'fas fa-fw fa-map-signs',
                 open: false,
                 position: 7,
                 options: {
@@ -378,7 +378,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/Editor',
                 title: 'Editor',
-                iconClass: 'fa-pencil',
+                iconClass: 'fas fa-fw fa-pencil-alt',
                 open: false,
                 position: 8,
                 options: {
@@ -408,7 +408,7 @@ define([
                 position: 9,
                 path: 'gis/dijit/StreetView',
                 title: 'StreetView',
-                iconClass: 'fa-street-view',
+                iconClass: 'fas fa-fw fa-street-view',
                 paneOptions: {
                     resizable: true,
                     resizeOptions: {
@@ -430,7 +430,7 @@ define([
                 type: 'titlePane',
                 path: 'gis/dijit/Identify',
                 title: 'Identify',
-                iconClass: 'fa-info-circle',
+                iconClass: 'fas fa-info-circle',
                 open: false,
                 position: 3,
                 preload: true,
@@ -443,7 +443,7 @@ define([
                 position: 100,
                 path: 'gis/dijit/Locale',
                 title: 'Locale',
-                iconClass: 'fa-flag',
+                iconClass: 'fas fa-fw fa-flag',
                 options: {
                     style: 'margin-left: 30px;'
                 }
@@ -451,12 +451,13 @@ define([
 
             calciteStyler: {
                 include: true,
+                id: 'calcite-styler',
                 type: 'titlePane',
                 path: 'widgets/CalciteStyler',
                 position: 100,
                 title: 'Calcite Styler',
                 open: false,
-                iconClass: 'fa-cog',
+                iconClass: 'fas fa-fw fa-cog',
                 options: {}
             },
 
@@ -468,7 +469,7 @@ define([
                 title: 'Using CMV with Calcite Maps',
                 menuTitle: 'About CMV',
                 open: true,
-                iconClass: 'fa-info',
+                iconClass: 'fas fa-fw fa-info',
                 options: {
                     className: 'text-center',
                     style: 'max-height:90%;',

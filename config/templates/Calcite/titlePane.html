@@ -2,13 +2,13 @@ div#cmv-{type}-{id}.panel.collapse{open}
     div#cmv-{type}-heading-{id}.panel-heading[role="tab"]
         div.panel-title
             a.panel-toggle[role="button"][data-toggle="collapse"][href="#cmv-{type}-collapse-{id}"][aria-expanded="true"][aria-controls="cmv-collapse-{id}"]
-                span.fa.fa-fw.{iconClass}[aria-hidden="true"]
+                span.{iconClass}[aria-hidden="true"]
                 <span.panel-label $
             <<a.panel-icon.panel-maximize{hideMaximizeButton}[role="button"]
-                span.fa.fa-fw.fa-window-maximize[aria-hidden="true"]
+                span.fas.fa-fw.fa-window-maximize[aria-hidden="true"]
             <<a.panel-icon.panel-restore.hidden[role="button"]
-                span.fa.fa-fw.fa-window-restore[aria-hidden="true"]
+                span.fas.fa-fw.fa-window-restore[aria-hidden="true"]
             <<a.panel-icon.panel-close{hideCloseButton}[role="button"][data-toggle="collapse"][data-target="#cmv-{type}-{id}"]
-                span.fa.fa-fw.fa-times[aria-hidden="true"]
+                span.fas.fa-fw.fa-times[aria-hidden="true"]
     <<<<div#cmv-{type}-collapse-{id}.panel-collapse.collapse{open}[role="tabpanel"][aria-labelledby="cmv-{type}-heading-{id}"]
         div#cmv-{type}-body-{id}.panel-body

@@ -22,7 +22,7 @@ html, body {
 /* end logo */
 
 /* proper margin for font-awesome icons in nav bar menu */
-.calcite-dropdown .dropdown-menu a>span.fa {
+.calcite-dropdown .dropdown-menu a>span.fa-fw {
     margin-right: 8px;
 }
 

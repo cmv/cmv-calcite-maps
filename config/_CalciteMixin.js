@@ -84,7 +84,7 @@ define([
                     startup: lang.hitch(this, function () {
                         require([
                             'dojo/domReady!',
-                            'calcite-maps/calcitemaps-v0.6'
+                            'calcite-maps/calcitemaps-v0.9'
                         ], lang.hitch(this, function () {
                             domQuery('.calcite-panels .panel .panel-collapse').on('hidden.bs.collapse', function (e) {
                                 var parentNodes = domQuery(e.target.parentNode);
@@ -126,6 +126,7 @@ define([
                     //build the pane
                     var containerNodes = domQuery('.navbar-fixed-' + key);
                     var paneConfig = panes[key];
+                    paneConfig.id = key;
                     paneConfig.type = type;
                     paneConfig.title = paneConfig.title || properCaseString(key) + ' Pane';
                     paneConfig.iconClass = paneConfig.iconClass || 'fa-window-maximize';
@@ -138,7 +139,7 @@ define([
                         template: titlePaneTemplate,
                         container: containerNodes[0]
                     };
-                    var retVal = this._createBootstrapWidget(key, paneConfig);
+                    var retVal = this._createBootstrapWidget(paneConfig);
                     if (paneConfig.content) {
                         var paneNodes = domQuery('#' + retVal.containerNode);
                         if (paneNodes) {
@@ -185,31 +186,31 @@ define([
             });
         },
 
-        _createTitlePaneWidget: function (parentId, widgetConfig) {
+        _createTitlePaneWidget: function (widgetConfig) {
             var item = this.calciteItems.titlePane;
             if (item.opened >= item.maxOpen) {
                 widgetConfig.open = false;
             }
-            var retVal = this._createBootstrapWidget(parentId, widgetConfig);
+            var retVal = this._createBootstrapWidget(widgetConfig);
             if (widgetConfig.open) {
                 item.opened++;
             }
             return retVal;
         },
 
-        _createFloatingWidget: function (parentId, widgetConfig) {
-            var retVal = this._createBootstrapWidget(parentId, widgetConfig);
+        _createFloatingWidget: function (widgetConfig) {
+            var retVal = this._createBootstrapWidget(widgetConfig);
             if (widgetConfig.openOnStartup || widgetConfig.open) {
-                domQuery('#cmv-floating-' + parentId).modal('show');
+                domQuery('#cmv-floating-' + widgetConfig.id).modal('show');
             }
             return retVal;
         },
 
-        _createContentPaneWidget: function (parentId, widgetConfig) {
-            return this._createBootstrapWidget(parentId, widgetConfig);
+        _createContentPaneWidget: function (widgetConfig) {
+            return this._createBootstrapWidget(widgetConfig);
         },
 
-        _createBootstrapWidget: function (parentId, widgetConfig) {
+        _createBootstrapWidget: function (widgetConfig) {
             var item = this.calciteItems[widgetConfig.type],
                 containerNode = window.document.body;
 
@@ -222,7 +223,7 @@ define([
                     dataToggle = item.dataToggle;
 
                 var opts = {
-                    id: parentId,
+                    id: widgetConfig.widgetKey,
                     hideTitle: (widgetConfig.showTitle === false) ? '.hidden' : '', // for floating dialogs
                     hideCloseButton: (widgetConfig.canClose === false) ? '.hidden' : '',
                     hideMaximizeButton: (widgetConfig.canMaximize !== true) ? '.hidden' : '',
@@ -242,7 +243,7 @@ define([
                     put(item.container, lang.replace(item.template, opts), menuTitle);
                 }
 
-                containerNode = 'cmv-' + type + '-body-' + parentId;
+                containerNode = 'cmv-' + type + '-body-' + widgetConfig.widgetKey;
             }
 
             var widget = new Stateful({
