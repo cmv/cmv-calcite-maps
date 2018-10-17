@@ -568,8 +568,19 @@ html, body {
     margin-left: 6px;
 }
 
-/* fixes for cmv search widget */
+/* end fixes for cmv search widget */
 
+/* fixes for cmv layerControl widget */
+.calcite .layerControlDijit .layerControlTableCheck .fa-border {
+    padding: 0.1em;
+}
+
+.calcite .layerControlDijit .layerControlTableCheck .layerControlIcon {
+    height: 15px;
+    width: 15px;
+}
+
+/* end fixes for cmv layerControl widget */
 
 /* fixes for esri widgets */
 .calcite .esriLegendServiceLabel,
