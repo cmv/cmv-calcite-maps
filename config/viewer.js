@@ -1,8 +1,8 @@
 define([
     'esri/units',
     'esri/layers/ImageParameters',
-    'dojo/topic'
-], function (units, ImageParameters) {
+    'dojo/sniff'
+], function (units, ImageParameters, has) {
 
     // helper function returning ImageParameters for dynamic layers
     // example:
@@ -64,18 +64,34 @@ define([
         // 3 'mode' options: MODE_SNAPSHOT = 0, MODE_ONDEMAND = 1, MODE_SELECTION = 2
         operationalLayers: [{
             type: 'feature',
-            url: 'https://services1.arcgis.com/6bXbLtkf4y11TosO/arcgis/rest/services/Restaurants/FeatureServer/0',
+            url: 'https://services.arcgis.com/doC3DvW5p9jGtDST/arcgis/rest/services/RestaurantInspections_April2018/FeatureServer/0/',
             title: 'Restaurants',
             options: {
                 id: 'restaurants',
                 opacity: 1.0,
                 visible: true,
                 outFields: ['*'],
+                featureReduction: has('phone') ? null : {
+                    type: 'cluster',
+                    clusterRadius: 10
+                },
                 mode: 0
+            },
+            editorLayerInfos: {
+                disableGeometryUpdate: false
+            },
+            legendLayerInfos: {
+                exclude: false,
+                layerInfo: {
+                    title: 'Restaurants'
+                }
+            },
+            layerControlLayerInfos: {
+                layerGroup: 'Grouped Feature Layers'
             }
         }, {
             type: 'feature',
-            url: 'https://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/FeatureServer/0',
+            url: 'https://sampleserver6.arcgisonline.com/ArcGIS/rest/services/SF311/FeatureServer/0',
             title: 'SF 311 Incidents',
             options: {
                 id: 'sf311Incidents',
@@ -83,6 +99,9 @@ define([
                 visible: true,
                 outFields: ['req_type', 'req_date', 'req_time', 'address', 'district'],
                 mode: 0
+            },
+            layerControlLayerInfos: {
+                layerGroup: 'Grouped Feature Layers'
             }
         }, {
             type: 'dynamic',
