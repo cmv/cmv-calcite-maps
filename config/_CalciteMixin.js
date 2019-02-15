@@ -126,7 +126,7 @@ define([
                     //build the pane
                     var containerNodes = domQuery('.navbar-fixed-' + key);
                     var paneConfig = panes[key];
-                    paneConfig.id = key;
+                    paneConfig.widgetKey = key;
                     paneConfig.type = type;
                     paneConfig.title = paneConfig.title || properCaseString(key) + ' Pane';
                     paneConfig.iconClass = paneConfig.iconClass || 'fa-window-maximize';
