@@ -111,7 +111,7 @@ define([
 
         // mimic the dojo panes
         createPanes: function () {
-            var key,
+            var key = null,
                 type = 'pane',
                 panes = this.config.panes;
 
@@ -160,11 +160,13 @@ define([
                     var bodyNodes = containerNodes.query('.panel-collapse');
                     var iconNodes = containerNodes.query('.panel-maximize');
                     on(iconNodes, 'click', function () {
+                        /*eslint no-loop-func: 0*/
                         containerNodes.addClass('maximize');
                         bodyNodes.collapse('show');
                     });
                     iconNodes = containerNodes.query('.panel-restore');
                     on(iconNodes, 'click', function () {
+                        /*eslint no-loop-func: 0*/
                         containerNodes.removeClass('maximize');
                         bodyNodes.collapse('show');
                     });
@@ -177,7 +179,7 @@ define([
             array.forEach(panelBody, function (panel) {
                 var panelWidgets = registry.findWidgets(panel);
                 array.forEach(panelWidgets, function (widget) {
-                    if (widget.resize && typeof(widget.resize) === 'function') {
+                    if (widget.resize && typeof widget.resize === 'function') {
                         window.setTimeout(function () {
                             widget.resize();
                         }, 10);

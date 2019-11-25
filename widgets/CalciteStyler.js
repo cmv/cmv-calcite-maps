@@ -258,15 +258,15 @@ function (
             query('#colorCalciteCollapse').removeClass('in');
             query('#colorPickerCollapse').removeClass('in');
             switch (style) {
-                // Show Calcite themes
+            // Show Calcite themes
             case 'theme':
                 query('#colorThemeCollapse').collapse('show');
                 break;
-                // Show calcite colors
+            // Show calcite colors
             case 'calcite':
                 query('#colorCalciteCollapse').collapse('show');
                 break;
-                // Show custom colors
+            // Show custom colors
             case 'custom':
                 query('#colorPickerCollapse').collapse('show');
                 break;
@@ -410,7 +410,7 @@ function (
             var theme = e.target.value;
             // Add classes
             switch (theme) {
-                // Default APP_LAYOUTS
+            // Default APP_LAYOUTS
             case 'layout-top': // default
                 this.setLayout(this.APP_LAYOUTS.TOP);
                 break;
@@ -481,11 +481,11 @@ function (
         //--------------------------------------------------------------------------
 
         _rgb2hsv: function () {
-            var rr, gg, bb,
+            var rr = null, gg = null, bb = null,
                 r = arguments[0] / 255,
                 g = arguments[1] / 255,
                 b = arguments[2] / 255,
-                h, s,
+                h = null, s = null,
                 v = Math.max(r, g, b),
                 diff = v - Math.min(r, g, b);
             function diffc (c) {
@@ -526,7 +526,7 @@ function (
             b /= 255;
             var max = Math.max(r, g, b),
                 min = Math.min(r, g, b);
-            var h, s, l = (max + min) / 2;
+            var h = null, s = null, l = (max + min) / 2;
 
             if (max === min) {
                 h = s = 0; // achromatic
