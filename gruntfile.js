@@ -93,23 +93,27 @@ module.exports = function (grunt) {
                 options: {
                     port: 3000,
                     base: '.',
-                    hostname: '*'
+                    hostname: '*',
+                    protocol: 'https',
+                    keepalive: true
                 }
             },
             build: {
                 options: {
                     port: 3001,
                     base: 'dist/viewer',
-                    hostname: '*'
+                    hostname: '*',
+                    protocol: 'https',
+                    keepalive: true
                 }
             }
         },
         open: {
             'dev_browser': {
-                path: 'http://localhost:3000/index.html'
+                path: 'https://localhost:3000/demo.html'
             },
             'build_browser': {
-                path: 'http://localhost:3001/index.html'
+                path: 'https://localhost:3001/demo.html'
             }
         },
         compress: {
