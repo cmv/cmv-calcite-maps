@@ -562,12 +562,19 @@ function (
             var rgba = '';
             for (var i = 0; i < ss.length; i++) {
                 ss = document.styleSheets;
-                var rules = ss[i].cssRules; // || ss[i].rules;
-                if (rules) {
-                    for (var j = 0; j < rules.length; j++) {
-                        if (rules[j].selectorText === caliteColorStyle) {
-                            rgba = rules[j].style[attr];
+                try {
+                    var rules = ss[1].cssRules; // || ss[i].rules;
+                    if (rules) {
+                        for (var j = 0; j < rules.length; j++) {
+                            if (rules[j].selectorText === caliteColorStyle) {
+                                rgba = rules[j].style[attr];
+                                break;
+                            }
                         }
+                    }
+                } finally {
+                    if (rgba !== '') {
+                        break;
                     }
                 }
             }
